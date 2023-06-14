@@ -1,3 +1,11 @@
+import logoImg from "../../../public/assets/logo.svg";
+
+import "../../styles/header.scss";
+
 export function Header() {
-  return <h1>Todo</h1>;
+  return (
+    <header>
+      <img src={logoImg} alt="rocket logo" />
+    </header>
+  );
 }

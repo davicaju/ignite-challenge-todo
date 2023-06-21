@@ -4,6 +4,7 @@ import {
   useContext,
   useState,
   useCallback,
+  useEffect,
 } from "react";
 
 type Task = {
@@ -14,6 +15,7 @@ type Task = {
 
 interface IUseTodo {
   tasks: Task[];
+  completedTaskNumber: number;
   onCreateTask: (value: string) => void;
   onDeleteTask: (id: number) => void;
   onCompleteTask: (id: number) => void;
@@ -41,8 +43,7 @@ export const UseTodoProvider = ({ children }: { children: ReactNode }) => {
   ];
 
   const [tasks, setTasks] = useState(mockedTasks);
-
-  console.log(tasks);
+  const [completedTaskNumber, setCompletedTaskNumber] = useState(0);
 
   const onCreateTask = useCallback(
     (value: string) => {
@@ -82,9 +83,21 @@ export const UseTodoProvider = ({ children }: { children: ReactNode }) => {
     [tasks]
   );
 
+  useEffect(() => {
+    const completedTask = tasks.filter((task) => task.isCompleted === true);
+
+    setCompletedTaskNumber(completedTask.length);
+  }, [tasks]);
+
   return (
     <useTodoContext.Provider
-      value={{ tasks, onCreateTask, onDeleteTask, onCompleteTask }}
+      value={{
+        tasks,
+        onCreateTask,
+        onDeleteTask,
+        onCompleteTask,
+        completedTaskNumber,
+      }}
     >
       {children}
     </useTodoContext.Provider>

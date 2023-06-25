@@ -42,8 +42,22 @@ export const UseTodoProvider = ({ children }: { children: ReactNode }) => {
     },
   ];
 
-  const [tasks, setTasks] = useState(mockedTasks);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [completedTaskNumber, setCompletedTaskNumber] = useState(0);
+
+  const loadTasks = () => {
+    const storageTasks = localStorage.getItem("tasks");
+
+    if (storageTasks) {
+      const tasks = JSON.parse(storageTasks);
+
+      setTasks(tasks);
+    }
+  };
+
+  useEffect(() => {
+    loadTasks();
+  }, []);
 
   const onCreateTask = useCallback(
     (value: string) => {
@@ -53,7 +67,11 @@ export const UseTodoProvider = ({ children }: { children: ReactNode }) => {
         isCompleted: false,
       };
 
-      setTasks((oldState) => [...oldState, task]);
+      const updatedTasks = [...tasks, task];
+
+      setTasks(updatedTasks);
+
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     },
     [tasks]
   );
@@ -63,6 +81,8 @@ export const UseTodoProvider = ({ children }: { children: ReactNode }) => {
       const noDeletedTask = tasks.filter((task) => task.id !== id);
 
       setTasks(noDeletedTask);
+
+      localStorage.setItem("tasks", JSON.stringify(noDeletedTask));
     },
     [tasks]
   );

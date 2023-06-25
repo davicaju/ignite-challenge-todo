@@ -1,0 +1,39 @@
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: -27px;
+
+  input {
+    width: 638px;
+    height: 54px;
+    padding: 1rem;
+
+    background-color: #262626;
+    color: #808080;
+
+    outline: none;
+
+    border: 1px solid #0d0d0d;
+    border-radius: 8px;
+  }
+
+  button {
+    width: 90px;
+    height: 54px;
+
+    background: #1e6f9f;
+    color: white;
+
+    border-radius: 8px;
+    border: 0;
+
+    margin-left: 8px;
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(95%);
+    }
+  }
+}

@@ -1,0 +1,124 @@
+.task-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  .tasks-information {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 736px;
+
+    margin-top: 64px;
+
+    .left-content {
+      display: flex;
+
+      p {
+        color: #4ea8de;
+        margin-right: 8px;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        background-color: #333;
+
+        font-family: "Inter";
+
+        width: 25px;
+        height: 19px;
+        border-radius: 999px;
+      }
+    }
+
+    .right-content {
+      display: flex;
+      p {
+        color: #8284fa;
+        margin-right: 8px;
+      }
+
+      .first-span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        background-color: #333;
+
+        font-family: "Inter";
+
+        width: 25px;
+        height: 19px;
+        border-radius: 999px;
+      }
+
+      .second-span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        background-color: #333;
+
+        font-family: "Inter";
+
+        width: 60px;
+        height: 19px;
+        border-radius: 999px;
+
+        p {
+          margin-left: 4px;
+          margin-right: 4px;
+
+          color: white;
+        }
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 736px;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+      height: 56px;
+
+      padding: 1rem;
+      border-radius: 8px;
+
+      background-color: #262626;
+      color: white;
+
+      margin-top: 16px;
+
+      svg {
+        cursor: pointer;
+      }
+
+      .left-content {
+        display: flex;
+
+        input {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
